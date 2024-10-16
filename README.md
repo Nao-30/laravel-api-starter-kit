@@ -39,9 +39,9 @@ This Laravel API Starter Kit is a robust foundation for building Laravel-based A
 
 4. **Configure Database**:
    - Update `.env` with your database credentials.
-   - Run migrations:
+   - Run migrations and seeds:
      ```bash
-     php artisan migrate
+     php artisan migrate --seed
      ```
 
 5. **Run the application**:
