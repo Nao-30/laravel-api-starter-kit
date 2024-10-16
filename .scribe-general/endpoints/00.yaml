@@ -1,0 +1,105 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ' Authenication API'
+      subgroupDescription: ''
+      title: 'تسجيل العميل للنظام'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The User Email. Must be a valid email address.'
+        required: true
+        example: sawsan@gmail.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: 'The User Password. Must be at least 8 characters.'
+        required: true
+        example: '********'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      email: sawsan@gmail.com
+      password: '********'
+    fileParameters: []
+    responses:
+      -
+        status: 422
+        content: '{"message":"The selected email is invalid.","errors":{"email":["The selected email is invalid."]}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ' Authenication API'
+      subgroupDescription: ''
+      title: 'تسجيل العميل خارج النظام'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer edv5Zf4cg38EP1khD66Vaba'
+    controller: null
+    method: null
+    route: null
+    custom: []

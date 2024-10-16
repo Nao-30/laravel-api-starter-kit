@@ -1,0 +1,5 @@
+{
+    "success": false,
+    "message": "Specified model [<model_name>] with ID[<queried_id>] does not exist.",
+    "result": null
+}

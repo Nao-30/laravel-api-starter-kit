@@ -1,0 +1,128 @@
+name: 'Authenticating Users'
+description: 'Endpoints for loging and logout operations for the users'
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/login
+    metadata:
+      groupName: 'Authenticating Users'
+      groupDescription: 'Endpoints for loging and logout operations for the users'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Authenticate Users to The System'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'The email of the user'
+        required: true
+        example: test@example.com
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      password:
+        name: password
+        description: 'The password of the user'
+        required: true
+        example: '********'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    cleanBodyParameters:
+      email: test@example.com
+      password: '********'
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"success":true,"message":"Login Successfully.","result":{"id":1,"name":"Test User","email":"test@example.com","email_verified_at":"2024-10-16T19:14:23.000000Z","created_at":"2024-10-16T19:14:23.000000Z","updated_at":"2024-10-16T19:14:23.000000Z","token":"15|ZccQ2qqC7Yzwum4wGaKXhHpDpsyG1SO8Q1xGqXpb874c0aeb"}}'
+        headers: []
+        description: 'Login Successfully'
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The provided credntials are incorrect.","errors":{"password":["The provided credntials are incorrect."]}}'
+        headers: []
+        description: 'Email or Password are incorrect'
+        custom: []
+      -
+        status: 422
+        content: '{"message":"The selected email is invalid.","errors":{"email":["The selected email is invalid."]}}'
+        headers: []
+        description: 'Email does not exist'
+        custom: []
+      -
+        status: 422
+        content: '{"message":"Unauthenticated."}'
+        headers: []
+        description: 'User is not authorized'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/logout
+    metadata:
+      groupName: 'Authenticating Users'
+      groupDescription: 'Endpoints for loging and logout operations for the users'
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Logout user account.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 204
+        content: '[]'
+        headers: []
+        description: 'Logout Successfully'
+        custom: []
+      -
+        status: 401
+        content: |-
+          {
+              "success": false,
+              "message": "Unauthenticated or Token Expired, Please Login",
+              "result": null
+          }
+        headers: []
+        description: 'Expired token or Unauthenticated user'
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer D6ge1a34kZb8P5dhcav6VfE'
+    controller: null
+    method: null
+    route: null
+    custom: []
